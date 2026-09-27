@@ -195,7 +195,7 @@
   .grp-empty{color:var(--muted);font-size:13px;padding:8px 2px}
 
   /* Logistics Hub */
-  .logi-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;padding:6px;margin-top:24px}
+  .logi-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;padding:6px;margin-top:24px}
   .logi-tab{border:0;background:transparent;border-radius:9px;padding:12px;font-weight:600;font-size:14px;color:var(--muted);cursor:pointer;font-family:inherit}
   .logi-tab.active{background:var(--orange);color:#181C23;box-shadow:none}
   .logi-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 30px;margin-top:22px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
@@ -483,8 +483,6 @@
     <p class="sub">Everything you need for a smooth experience.</p>
     <div class="logi-tabs" id="logiTabs">
       <button class="logi-tab active" data-ltab="venue">Venue</button>
-      <button class="logi-tab" data-ltab="travel">Travel</button>
-      <button class="logi-tab" data-ltab="catering">Catering</button>
       <button class="logi-tab" data-ltab="contacts">Contacts</button>
     </div>
     <div id="logiPanel"></div>
@@ -502,7 +500,7 @@
       <div style="color:var(--muted);font-size:14px">Solution Architect Certification Program · 2026</div>
     </div>
     <div class="foot-note">
-      For questions about the program, contact <span class="ph">[program contact / email]</span>.<br>
+      For questions about the program, contact <a href="mailto:anita.seeram@genpact.com" style="color:var(--coral)">Anita Seeram</a> (anita.seeram@genpact.com) or <a href="mailto:shelia.page@genpact.com" style="color:var(--coral)">Shelia Page</a> (shelia.page@genpact.com).<br>
       Copyright © Genpact 2026. All rights reserved. — Internal use only.
     </div>
   </div>
@@ -548,7 +546,7 @@ const agenda = [
       "title": "“What Are We Here to Change?”",
       "cat": "session",
       "desc": "Team Introduction and Set personal goals and define the observable behaviors of a strong deal engineer",
-      "speaker": "Pramodd Sudhndra"
+      "speaker": "Pramodd Sudhindhra"
     },
     {
       "time": "09:15 – 09:45",
@@ -616,7 +614,7 @@ const agenda = [
       "title": "Story telling",
       "cat": "session",
       "desc": "How to design & deliver a boardroom-level solution presentation? What are some of the narrative techniques? How to use Data-driven stories?",
-      "speaker": "Pramodd Sudhndra"
+      "speaker": "Pramodd Sudhindhra"
     },
     {
       "time": "15:30 – 15:45",
@@ -719,14 +717,13 @@ const agenda = [
       "time": "16:15 – 16:45",
       "title": "Rewards and Recognitions, Closing Remarks",
       "cat": "presentation",
-      "speaker": "Pramodd Sudhndra"
+      "speaker": "Pramodd Sudhindhra"
     }
   ]
 ];
 
 const participants = [
   {id:"750033498", name:"Hement Sasan", role:"Lead Solution Architect", practice:"Large Deals"},
-  {id:"730016894", name:"Octavian Teodorescu", role:"Lead Solution Architect", practice:"Large Deals"},
   {id:"750035560", name:"Arshad Rizvi", role:"Lead Solution Architect", practice:"Cyber Security"},
   {id:"400204229", name:"Nitin Jain", role:"Lead Solution Architect", practice:"Large Deals"},
   {id:"703099750", name:"Ram Srinivasan", role:"Lead Solution Architect", practice:"Large Deals"},
@@ -734,7 +731,6 @@ const participants = [
   {id:"750050166", name:"Masanamuthu, Sreenivasan", role:"Solution Architect", practice:"Application Production Support"},
   {id:"750049870", name:"Richard Hand", role:"Solution Architect", practice:"Quality Engineering"},
   {id:"750049546", name:"Aisha Gandhi", role:"Solution Architect", practice:"ServiceNow"},
-  {id:"750050504", name:"Deepti Garg", role:"Solution Architect", practice:"ServiceNow"},
   {id:"750050800", name:"Kaushik Dey", role:"Solution Architect", practice:"Data & AI"},
   {id:"703017280", name:"Keerty Vishweshwarachar", role:"Solution Architect", practice:"Data & AI"},
   {id:"750030997", name:"Ankur Sambher", role:"Solution Architect", practice:"Data & AI"},
@@ -742,9 +738,6 @@ const participants = [
   {id:"750051086", name:"Radha Sampathkumar", role:"Solution Architect", practice:"Data & AI"},
   {id:"750051187", name:"Sohail Koujalgi", role:"Solution Architect", practice:"Data & AI"},
   {id:"750016758", name:"Narayanan Venkatraman", role:"Solution Architect", practice:"Data & AI"},
-  {id:"750051923", name:"Dipty Ranjan Padhy", role:"Solution Architect", practice:"Google"},
-  {id:"750045468", name:"James Avellone", role:"Solution Architect", practice:"AWS"},
-  {id:"750052103", name:"Sam Aslam", role:"Solution Architect", practice:"AWS"},
   {id:"750050361", name:"Mantu Samadder", role:"Solution Architect", practice:"AWS"},
   {id:"750052510", name:"Debasish Ghosh", role:"Solution Architect", practice:"AWS"},
   {id:"750052171", name:"Ramesh Machavarapu", role:"Solution Architect", practice:"AWS"},
@@ -792,9 +785,16 @@ const LOGI = {
     foodAllergies:"[Mention]",
   },
   contacts:[
-    {role:"Program lead", name:"[Name]", email:"[email]"},
-    {role:"Logistics / venue", name:"[Name]", email:"[email]"},
-    {role:"Technical support", name:"[Name]", email:"[email]"},
+    {role:"Program lead", people:[
+      {name:"Sangeetha Kota", email:"Sangeetha.Kota@genpact.com"},
+      {name:"Sarvesh Tiwari", email:"Sarvesh.Tiwari@genpact.com"},
+    ]},
+    {role:"Logistics / Venue", people:[
+      {name:"Shelia Page", email:"shelia.page@genpact.com"},
+    ]},
+    {role:"Technical support", people:[
+      {name:"Santosh Laxmi Ramshetty", email:"SantoshLaxmi.Ramshetty1@genpact.com"},
+    ]},
   ],
 };
 
@@ -1246,7 +1246,7 @@ function logiContacts(){
   return `<div class="logi-card">
     <h3>${IC.phone} Key Contacts</h3>
     <div class="lc-rows">${LOGI.contacts.map(c=>`
-      <div class="lc-row"><div class="k">${t(c.role)}</div><div>${t(c.name)}${c.email?` · <span style="color:var(--navy)">${t(c.email)}</span>`:""}</div></div>`).join("")}</div>
+      <div class="lc-row"><div class="k">${t(c.role)}</div><div>${(c.people||[]).map(p=>`${esc(p.name)} · <a href="mailto:${esc(p.email)}" style="color:var(--coral)">${esc(p.email)}</a>`).join("<br>")}</div></div>`).join("")}</div>
   </div>`;
 }
 const logiViews={venue:logiVenue, travel:logiTravel, catering:logiCatering, contacts:logiContacts};
