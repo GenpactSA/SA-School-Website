@@ -742,9 +742,12 @@ const participants = [
   {id:"750052510", name:"Debasish Ghosh", role:"Solution Architect", practice:"AWS"},
   {id:"750052171", name:"Ramesh Machavarapu", role:"Solution Architect", practice:"AWS"},
   {id:"750052458", name:"Ramesh Kesavanarayanan", role:"Lead Solution Architect", practice:"Large Deals"},
-  {id:"TBC-01", name:"Amar Kundu", role:"Solution Architect", practice:"Salesforce"},
-  {id:"TBC-02", name:"Prem Joe", role:"Lead Solution Architect", practice:"Large Deals"},
-  {id:"TBC-03", name:"Alex Falenchuk", role:"Lead Solution Architect", practice:"Large Deals"},
+  {id:"750048063", name:"Amar Kundu", role:"Solution Architect", practice:"Salesforce"},
+  {id:"750044410", name:"Prem Joe", role:"Lead Solution Architect", practice:"Large Deals"},
+  {id:"750010510", name:"Alex Falenchuk", role:"Lead Solution Architect", practice:"Large Deals"},
+  {id:"750051923", name:"Praveen Chilakalapudi", role:"Solution Architect", practice:"Google"},
+  {id:"750017857", name:"Manoj Shekhawat", role:"Solution Architect", practice:"Sequence"},
+  {id:"750050358", name:"Abhishek Srivastava", role:"Solution Architect", practice:"ServiceNow"},
 ];
 
 /* Panelists — evaluation panel groups. Seed here or manage live in the UI. */
@@ -1006,11 +1009,16 @@ const shownCount=document.getElementById("shownCount");
 const noResults=document.getElementById("noResults");
 const totalCountEl=document.getElementById("totalCount");
 const P_STORE="sas_added_participants";
+const _pnorm=s=>(s||"").toLowerCase().replace(/\s+/g," ").trim();
 try{
   const saved=JSON.parse(localStorage.getItem(P_STORE)||"[]");
-  saved.forEach(p=>{ if(p&&p.id&&!participants.some(x=>x.id===p.id)) participants.push({...p, added:true}); });
+  saved.forEach(p=>{
+    if(p && p.name && !participants.some(x=>x.id===p.id || _pnorm(x.name)===_pnorm(p.name)))
+      participants.push({...p, added:true});
+  });
 }catch(e){}
 function persistAdded(){ try{ localStorage.setItem(P_STORE, JSON.stringify(participants.filter(p=>p.added))); }catch(e){} }
+try{ persistAdded(); }catch(e){}
 
 function renderParticipants(filter=""){
   pGrid.innerHTML="";
