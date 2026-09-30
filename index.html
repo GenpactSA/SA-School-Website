@@ -376,6 +376,7 @@
         <div class="cd-cell"><div class="cd-num" id="cd-m">00</div><div class="cd-lab">Min</div></div>
         <div class="cd-cell"><div class="cd-num" id="cd-s">00</div><div class="cd-lab">Sec</div></div>
       </div>
+      <div style="margin-top:12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Counting down to 8:00 AM Central Time (Texas) · Oct 1</div>
     </div>
     <div class="cd-done" id="cdDone" style="display:none">The program is underway — welcome!</div>
   </div>
@@ -521,18 +522,21 @@
 const FORM_URL = "PASTE_YOUR_MICROSOFT_FORM_LINK_HERE";
 
 /* 2) COUNTDOWN TARGET (local time) */
-const START_DATE = new Date("2026-10-01T08:00:00");
+/* Program start: Oct 1, 8:00 AM Central Time (Texas). The -05:00 offset is
+   CDT, in effect on this date, so the countdown is an absolute instant and
+   stays correct for viewers in any timezone. */
+const START_DATE = new Date("2026-10-01T08:00:00-05:00");
 
 /* program meta (used in the hero badge) */
 const program = { location:"[Location]" };
 
 /* ---------------- DATA ---------------- */
 const days = [
-  {num:"1", monShort:"Oct", weekday:"Day 1 · Thursday", label:"Day 1", theme:"Foundations, Fireside Chat & the RFP Challenge"},
+  {num:"1", monShort:"Oct", weekday:"Day 1 · Thursday", label:"Day 1", theme:"Foundations, Solutioning & the RFP Challenge"},
   {num:"2", monShort:"Oct", weekday:"Day 2 · Friday",   label:"Day 2", theme:"Panel Presentations & Certification"},
 ];
 
-/* Agenda — loaded from SA_School_agenda.xlsx (Oct 1–2). Times are start – end. */
+/* Agenda — loaded from SA_School_Final_Agenda.xlsx (Oct 1–2). Times are start – end. */
 const agenda = [
   [
     {
@@ -542,102 +546,102 @@ const agenda = [
       "desc": "Team reporting"
     },
     {
-      "time": "08:30 – 09:15",
+      "time": "08:30 – 08:50",
       "title": "“What Are We Here to Change?”",
       "cat": "session",
       "desc": "Team Introduction and Set personal goals and define the observable behaviors of a strong deal engineer",
-      "speaker": "Pramodd Sudhindhra"
+      "speaker": "Jaco Van Standen"
     },
     {
-      "time": "09:15 – 09:45",
+      "time": "08:50 – 09:35",
+      "title": "“7 Habits of a Highly Effective Tech Solutions Architect” and How to pitch the value vs productivity battle",
+      "cat": "session",
+      "desc": "For building repeatable wining solutions. Practice these repeatable “good” habits every SA should develop, and unlearn these other bad solution habits. To pitch value vs productivity battle.",
+      "speaker": "Sarvesh Tiwari"
+    },
+    {
+      "time": "09:35 – 10:15",
+      "title": "Solution Plan and review ",
+      "cat": "session",
+      "desc": "What is solution plan and its importance. How to build the solution plan and operating model based on the solution plan and more.",
+      "speaker": "Jyoti Arora"
+    },
+    {
+      "time": "10:15 – 10:30",
+      "title": "Networking Break",
+      "cat": "break",
+      "desc": "Refreshments"
+    },
+    {
+      "time": "10:30 – 11:00",
+      "title": "Building blocks of Data & AI solution and opportunity orals story - our Integrated Data & AI story",
+      "cat": "session",
+      "desc": "Key considerations for evaluating Data & AI opportunities, with a framework to identify value, assess readiness, and prioritize initiatives, informed by lessons learned from Henry Schein and other engagements.",
+      "speaker": "Ravi Vijay"
+    },
+    {
+      "time": "11:00 – 11:30",
       "title": "“From Solution Architect to Solution Engineer”",
       "cat": "session",
       "desc": "The FY27 target and the thinking behind it. The goal is for the cohort to understand what we need to deliver, which deal archetypes drive success, and where they should shape client direction.",
       "speaker": "Sanjeev Vohra"
     },
     {
-      "time": "09:45 – 10:30",
-      "title": "“7 Habits of a Highly Effective Tech Solutions Architect” and \"How to pitch the value vs productivity battle",
-      "cat": "session",
-      "desc": "For building repeatable wining solutions. Practice these repeatable “good” habits every SA should develop, and unlearn these other bad solution habits. To pitch value vs productivity battle.",
-      "speaker": "Sarvesh Tiwari"
-    },
-    {
-      "time": "10:30 – 10:45",
-      "title": "Networking Break",
-      "cat": "break",
-      "desc": "Refreshments"
-    },
-    {
-      "time": "10:45 – 11:15",
-      "title": "Solution Plan and review",
-      "cat": "session",
-      "desc": "What is solution plan and its importance. How to build the solution plan and operating model based on the solution plan and more.",
-      "speaker": "Jyoti Arora"
-    },
-    {
-      "time": "11:15 – 12:00",
+      "time": "11:30 – 12:15",
       "title": "What is the new AI first operating model",
       "cat": "session",
-      "desc": "What is AI-first mindset Defining an AI operating model :  designing from the agent outward and being able to defend where the human stays, what the controls are,  Genpact AI Assets : AI Maestro, GLabs, AI Value Studio and others  Labour and Non-labour Estimations for AI",
-      "speaker": "Jaco Van Staden & Ravi V"
+      "desc": "What is AI-first mindset Defining an AI operating model : designing from the agent outward and being able to defend where the human stays, what the controls are, Genpact AI Assets : AI Maestro, GLabs, AI Value Studio and others Labour and Non-labour Estimations for AI",
+      "speaker": "Jaco Van Staden"
     },
     {
-      "time": "12:00 – 12:30",
-      "title": "Building blocks of Data & AI solution and opportunity orals story\" - our Integrated Data & AI story",
-      "cat": "session",
-      "desc": "Key considerations for evaluating Data & AI opportunities, with a framework to identify value, assess readiness, and prioritize initiatives, informed by lessons learned from Henry Schein and other engagements.",
-      "speaker": "Ravi Vijay"
-    },
-    {
-      "time": "12:30 – 13:00",
-      "title": "Mock Review",
-      "cat": "session",
-      "desc": "A live mock review of an active deal would provide practical insight, allowing us to validate the approach in real time and refine it based on the outcomes.",
-      "speaker": "Parikshit"
-    },
-    {
-      "time": "13:00 – 14:00",
+      "time": "12:30 – 13:30",
       "title": "Lunch and Networking",
       "cat": "meal",
       "desc": "Hosted lunch"
     },
     {
-      "time": "14:00 – 14:30",
-      "title": "Fireside chat - \"Think Real and Make It Work on Monday Morning - Fixing what our clients often find us missing\" and “Read Between the Lines: Find the real Deal Behind the RFP”",
-      "cat": "panel",
-      "desc": "Fixing what our clients often say we miss the mark on, in our Tech-alone solutions. From engineering the enterprise architecture, to creating and arcticulating the modern operating models, AI-age transitions, thinking data first, integrations, controls, talent, SLAs, governance and innovative commercials. Difference between a well thought through solution and an average solution. Use public signals, account history and smart hypotheses to expose unstated needs, politics and decision drivers; Reframe the same solution for the CIO, business sponsor, operations leader, CISO, CFO and procurement",
-      "speaker": "Ranjan Gupta & Rajesh Ganshani with Sarvesh"
-    },
-    {
-      "time": "14:30 – 15:30",
-      "title": "Story telling",
+      "time": "13:30 – 14:30",
+      "title": "Mock Review of KC",
       "cat": "session",
-      "desc": "How to design & deliver a boardroom-level solution presentation? What are some of the narrative techniques? How to use Data-driven stories?",
-      "speaker": "Pramodd Sudhindhra"
+      "desc": "A live mock review of an active deal would provide practical insight, allowing us to validate the approach in real time and refine it based on the outcomes.",
+      "speaker": "Alex to present to Parikshit. Jyoti to Anchor"
     },
     {
-      "time": "15:30 – 15:45",
+      "time": "13:30 – 14:00",
+      "title": "Estimation playbooks per Practice/Service Line",
+      "cat": "session",
+      "desc": "APS",
+      "speaker": "Sreeni M"
+    },
+    {
+      "time": "14:30 – 15:00",
+      "title": "Delivery Insights",
+      "cat": "session",
+      "desc": "What are the various Initiatives being driven in Delivery across AI and non-AI",
+      "speaker": "Parikshit"
+    },
+    {
+      "time": "15:00 – 15:15",
       "title": "Networking Break",
       "cat": "break",
       "desc": "Refreshments"
     },
     {
-      "time": "15:45 – 16:35",
-      "title": "2 new partner products that we should be thinking of in Tech services",
+      "time": "15:15 – 16:00",
+      "title": "Asato.ai",
       "cat": "session",
-      "desc": "Relevant startup exposure matters more than a partner showcase.  Asato, an agentic platform for CIOs that helps uncover IT waste and renewal risk, raising the key question of partner or competitor - confirmed Parallel AI - confirmed",
-      "speaker": "Sangeetha and Jyoti"
+      "desc": "Relevant startup exposure matters more than a partner showcase. Asato, an agentic platform for CIOs that helps uncover IT waste and renewal risk, raising the key question of partner or competitor - confirmed Parallel AI - confirmed",
+      "speaker": "asato.ai"
     },
     {
-      "time": "16:35 – 17:05",
-      "title": "Estimation playbooks per Practice/Service Line",
+      "time": "16:15 – 17:00",
+      "title": "Parallel.ai Session",
       "cat": "session",
-      "desc": "ERP, Cloud & Infra, APS",
-      "speaker": "Pritam Choudhary, Sreeni"
+      "desc": "Receive the simulated RFP, choose roles, surface unknowns and start the solution storyboard for tomorrow’s client-room defense",
+      "speaker": "Parallel.ai"
     },
     {
-      "time": "17:05 – 17:35",
+      "time": "17:00 – 17:30",
       "title": "Your Turn: The RFP Challenge Goes Live",
       "cat": "session",
       "desc": "Receive the simulated RFP, choose roles, surface unknowns and start the solution storyboard for tomorrow’s client-room defense",
@@ -646,14 +650,14 @@ const agenda = [
   ],
   [
     {
-      "time": "09:00 – 09:15",
-      "title": "Onboarding the Panelist",
+      "time": "08:30 – 09:00",
+      "title": "Opening conversation",
       "cat": "presentation",
       "desc": "Onboarding the Panelist",
-      "speaker": "Sangeetha"
+      "speaker": "Pramodd Sudhindhra"
     },
     {
-      "time": "09:15 – 09:30",
+      "time": "09:00 – 09:15",
       "title": "Know the Bar: How the Panel Will Decide",
       "cat": "presentation",
       "desc": "Understand the certification bar for client insight, coherence, engineering depth, value, feasibility, risk handling and communication",
@@ -695,26 +699,19 @@ const agenda = [
       "speaker": "Jaco"
     },
     {
-      "time": "13:30 – 14:30",
+      "time": "12:30 – 14:30",
       "title": "Lunch and Networking",
       "cat": "meal",
       "desc": "Hosted lunch; panel reviews patterns, without finalizing outcomes"
     },
     {
-      "time": "14:00 – 14:45",
-      "title": "2 new partner products that we should be thinking of in Tech services",
-      "cat": "session",
-      "desc": "Relevant startup exposure matters more than a partner showcase.  DataRobot ((Ravi Vijay) GCP/AWS",
-      "speaker": "Sangeetha and Ravi"
-    },
-    {
-      "time": "14:45 – 16:15",
+      "time": "14:30 – 16:00",
       "title": "Feedback, Results, Certification, Reflections",
       "cat": "presentation",
       "speaker": "All Leads"
     },
     {
-      "time": "16:15 – 16:45",
+      "time": "16:00 – 16:30",
       "title": "Rewards and Recognitions, Closing Remarks",
       "cat": "presentation",
       "speaker": "Pramodd Sudhindhra"
@@ -742,12 +739,12 @@ const participants = [
   {id:"750052510", name:"Debasish Ghosh", role:"Solution Architect", practice:"AWS"},
   {id:"750052171", name:"Ramesh Machavarapu", role:"Solution Architect", practice:"AWS"},
   {id:"750052458", name:"Ramesh Kesavanarayanan", role:"Lead Solution Architect", practice:"Large Deals"},
-  {id:"750048063", name:"Amar Kundu", role:"Solution Architect", practice:"Salesforce"},
-  {id:"750044410", name:"Prem Joe", role:"Lead Solution Architect", practice:"Large Deals"},
-  {id:"750010510", name:"Alex Falenchuk", role:"Lead Solution Architect", practice:"Large Deals"},
-  {id:"750051923", name:"Praveen Chilakalapudi", role:"Solution Architect", practice:"Google"},
-  {id:"750017857", name:"Manoj Shekhawat", role:"Solution Architect", practice:"Sequence"},
-  {id:"750050358", name:"Abhishek Srivastava", role:"Solution Architect", practice:"ServiceNow"},
+  {id:"TBC-01", name:"Amar Kundu", role:"Solution Architect", practice:"Salesforce"},
+  {id:"TBC-02", name:"Prem Joe", role:"Lead Solution Architect", practice:"Large Deals"},
+  {id:"TBC-03", name:"Alex Falenchuk", role:"Lead Solution Architect", practice:"Large Deals"},
+  {id:"TBC-04", name:"Praveen Chilakalapudi", role:"Solution Architect", practice:"Google"},
+  {id:"TBC-06", name:"Manoj Shekhawat", role:"Solution Architect", practice:"Sequence"},
+  {id:"TBC-07", name:"Abhishek Srivastava", role:"Solution Architect", practice:"ServiceNow"},
 ];
 
 /* Panelists — evaluation panel groups. Seed here or manage live in the UI. */
